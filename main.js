@@ -14,14 +14,15 @@ function App(){
     // เพิ่ม counter ไอดี จะเท่ากับความยาวของ ไอดี+1 เลขไอดีจะได้ไม่ซ้ำกัน แล้วกให้ number เป็น 0
     const addCounter = ()=>{
         
-        setCount([...count, {id: count.length + 1,number:0}])
+        setCount([...count, {id: Math.round(Math.random()*1000),number:0}])
     }
-    // remove ออก เอาเลขอินเด็ก มา splice ออก
+    // remove ออก เอาเลขอินเด็ก มา splice ออก || ใช้ filter 
     const removeCounter=(id)=>{
         let value = count.findIndex(el => el.id === id)
         let newArr = [...count]
         newArr.splice(value, 1)
         setCount(newArr )
+        // setCount(count.filter(el=> el.id != id))
 
     }
     //ยอดรวม  ค่าก่อนหน้าเป็น 0 รวมกับnumber 
